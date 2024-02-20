@@ -41,7 +41,8 @@ Dopo aver ripassato, avrai due possibilità:
 - Registrarti, loggarti
 - Entrare come ospite  
 
-In entrambi i casi potrai passare alla pagina successiva cliccando su cliccando 'Play Game', dopodichè ti troverai nella pagina di creazione della lobby nella quale dovrai:
+In entrambi i casi potrai passare alla pagina successiva cliccando su cliccando 'Play Game',  
+dopodichè ti troverai nella pagina di creazione della lobby nella quale dovrai:
 
 - Creare una lobby, quindi scegliere difficoltà, numero giocatori e darle un nome
 oppure

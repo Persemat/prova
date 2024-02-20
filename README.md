@@ -37,12 +37,16 @@ Attualmente è `4.0.0`.
 *Per giocare devi conoscere le regole di Risiko*  
 Per rinfrescarti la memoria nella pagina principale c'è una sintesi delle regole di gioco prese dal gioco ufficiale 
 Dopo aver ripassato, avrai due possibilità:
-*Registrarti, loggarti
-*Entrare come ospite  
+
+- Registrarti, loggarti
+- Entrare come ospite  
+
 In entrambi i casi potrai passare alla pagina successiva cliccando su cliccando 'Play Game', dopodichè ti troverai nella pagina di creazione della lobby nella quale dovrai:
--Creare una lobby, quindi scegliere difficoltà, numero giocatori e darle un nome
+
+- Creare una lobby, quindi scegliere difficoltà, numero giocatori e darle un nome
 oppure
--Entrare in una lobby esistente  
+- Entrare in una lobby esistente  
+
 *La partita comincia in automatico quando la Lobby è piena*  
 #### N.B : nelle due modalità media e facile l'unione dei territori della modalità difficile si nota dai confini grigi (rispetto al nero classico)  
 Qua sotto un immagine per invogliarti a provare il nostro gioco... Buon divertimento! 

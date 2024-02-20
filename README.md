@@ -44,6 +44,6 @@ oppure
 *La partita comincia in automatico quando la Lobby è piena*  
 #### N.B : nelle due modalità media e facile l'unione dei territori della modalità difficile si nota dai confini grigi (rispetto al nero classico)  
 Qua sotto un immagine per invogliarti a provare il nostro gioco... Buon divertimento!  
-![Mappa_6players.png](Mappa_6players.png)  
+![Mappa_6players.jpeg](Mappa_6players.jpeg)  
 
 *made by MVC-GURU*

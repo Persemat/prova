@@ -36,7 +36,7 @@ Una volta aperto il server troverai questa schermata e avrai due possibilità:
 	- entrare come ospite 
 In entrambi i casi potrai passare alla pagina successiva cliccando su cliccando 'Play Game'
 
-![home_page.png](home_page.png?raw=true)
+![home_page.png](home_page.png)
 - 
 - Una volta , questa sarà visibile dalla scheda a destra. Cliccando sull'id, apparirà una schermata tramite la quale sarà possibile avviare la partita.
 - Se vi sono più giocatori selezionati, la partita non inizierà fino a che non verrà raggiunto il numero prestabilito.

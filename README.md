@@ -30,15 +30,21 @@ Infine, crea il pacchetto .jar completo.
 Attualmente è `4.0.0`.
 
 - Il server è ora accessibile all'indirizzo `localhost:8080`.
-
-Una volta aperto il server troverai questa schermata e avrai due possibilità:
-	- registrarti, loggarti
-	- entrare come ospite 
-In entrambi i casi potrai passare alla pagina successiva cliccando su cliccando 'Play Game'
-
 ![home_page.png](home_page.png)
-- 
-- Una volta , questa sarà visibile dalla scheda a destra. Cliccando sull'id, apparirà una schermata tramite la quale sarà possibile avviare la partita.
-- Se vi sono più giocatori selezionati, la partita non inizierà fino a che non verrà raggiunto il numero prestabilito.
+
+*Per giocare devi conoscere le regole di Risiko*
+Per rinfrescarti la memoria nella pagina principale c'è una sintesi delle regole di gioco prese dal gioco ufficiale 
+Dopo aver ripassato, avrai due possibilità:
+  *Registrarti, loggarti
+  *Entrare come ospite 
+In entrambi i casi potrai passare alla pagina successiva cliccando su cliccando 'Play Game', dopodichè ti troverai nella pagina di creazione della lobby nella quale dovrai:
+-Creare una lobby, quindi scegliere difficoltà, numero giocatori e darle un nome
+oppure
+-Entrare in una lobby esistente
+*La partita comincia in automatico quando la Lobby è piena*
+
+#### N.B : nelle due modalità media e facile l'unione dei territori della modalità difficile si nota dai confini grigi (rispetto al nero classico)
+Qua sotto un immagine per invogliarti a provare il nostro gioco... Buon divertimento!
+![mappa_6players.png](mappa_6players.png)
 
 *made by MVC-GURU*

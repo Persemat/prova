@@ -6,7 +6,7 @@
 
 ![RiskLogo.png](RiskLogo.png?raw=true)
 
-## Come eseguire il progetto
+## Esecuzione progetto
 
 ### Prerequisiti
 
@@ -32,6 +32,8 @@ Attualmente è `4.0.0`.
 - Il server è ora accessibile all'indirizzo `localhost:8080`.
 ![home_page.png](home_page.png)
 
+
+## Come giocare
 *Per giocare devi conoscere le regole di Risiko*
 Per rinfrescarti la memoria nella pagina principale c'è una sintesi delle regole di gioco prese dal gioco ufficiale 
 Dopo aver ripassato, avrai due possibilità:

@@ -34,7 +34,7 @@ Attualmente è `4.0.0`.
 
 
 ## Come giocare
-*Per giocare devi conoscere le regole di Risiko*
+*Per giocare devi conoscere le regole di Risiko*  
 Per rinfrescarti la memoria nella pagina principale c'è una sintesi delle regole di gioco prese dal gioco ufficiale 
 Dopo aver ripassato, avrai due possibilità:
 *Registrarti, loggarti

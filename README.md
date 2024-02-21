@@ -21,12 +21,12 @@
 *I seguenti comandi sono da eseguire all'interno della root del repository*
 
 - `mvn package`: Esegue la build del server e i relativi test. 
-Se hanno successo, esegue anche la build del client all'interno di `src/main/app` e copia i file generati
+Se i test hanno successo, esegue anche la build del client all'interno di `src/main/app` e copia i file generati
 in `target/static`, dove `target/` è la cartella in cui risiedono i file compilati del server.
 Infine, crea il pacchetto .jar completo.
 
-- `java -jar target/monopoly-VERSION.jar`: Esegue il file .jar generato in precedenza.
-`VERSION` è il numero di versione presente nel file `pom.xml` alla path `project.version`.
+- `java -jar target/eclipse-VERSION.jar`: Esegue il file .jar generato in precedenza.
+`VERSION` è il numero di versione presente nel file `pom.xml` al path `project.version`.
 Attualmente è `4.0.0`.
 
 - Il server è ora accessibile all'indirizzo `localhost:8080`.

@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/github/license/UnimibSoftEngCourse2022/riskgame-malnati-negro-persico-romano-radaelli-mvc-guru-1)
 ![Stars](https://img.shields.io/github/stars/UnimibSoftEngCourse2022/riskgame-malnati-negro-persico-romano-radaelli-mvc-guru-1)
 
-![RiskGame.png](RiskGame.png?raw=true)
+![RiskGame.png](RiskGame.png)
 
 ## Esecuzione progetto
 

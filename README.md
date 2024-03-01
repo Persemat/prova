@@ -1,57 +1,330 @@
-# Risk Game
-
-![Version](https://img.shields.io/badge/version-4.0.0-success)
-![License](https://img.shields.io/github/license/UnimibSoftEngCourse2022/riskgame-malnati-negro-persico-romano-radaelli-mvc-guru-1)
-![Stars](https://img.shields.io/github/stars/UnimibSoftEngCourse2022/riskgame-malnati-negro-persico-romano-radaelli-mvc-guru-1)
-
-<img src="RiskGame.png" alt="Descrizione alternativa" width="100%">
-
-## Esecuzione progetto
-
-### Prerequisiti
-
-- [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
-- [Maven](https://maven.apache.org/install.html) (3.1 or >)
-- [Git](https://git-scm.com/downloads)
-
-### Import e installazione 
-
-- `git clone https://github.com/UnimibSoftEngCourse2022/riskgame-malnati-negro-persico-romano-radaelli-mvc-guru-1.git`: per eseguire la clone del repository localmente.
-
-*I seguenti comandi sono da eseguire all'interno della root del repository*
-
-- `mvn package`: Esegue la build del server e i relativi test. 
-Se i test hanno successo, esegue anche la build del client all'interno di `src/main/app` e copia i file generati
-in `target/static`, dove `target/` è la cartella in cui risiedono i file compilati del server.
-Infine, crea il pacchetto .jar completo.
-
-- `java -jar target/eclipse-VERSION.jar`: Esegue il file .jar generato in precedenza.
-`VERSION` è il numero di versione presente nel file `pom.xml` al path `project.version`.
-Attualmente è `4.0.0`.
-
-- Il server è ora accessibile all'indirizzo `localhost:8080`.
-![home_page.png](home_page.png)
-
-
-## Come giocare
-*Per giocare devi conoscere le regole di Risiko*  
-
-Per rinfrescarti la memoria nella pagina principale c'è una sintesi delle regole di gioco prese dal gioco ufficiale  
-Dopo aver ripassato, avrai due possibilità:
-
-- Registrarti, loggarti
-- Entrare come ospite  
-
-In entrambi i casi potrai passare alla pagina successiva cliccando su cliccando 'Play Game',  
-dopodichè ti troverai nella pagina di creazione della lobby nella quale dovrai:
-
-- Creare una lobby, quindi scegliere difficoltà, numero giocatori e darle un nome
-- Entrare in una lobby esistente  
-
-*La partita comincia in automatico quando la Lobby è piena*  
-#### N.B : nelle due modalità media e facile l'unione dei territori della modalità difficile si nota dai confini grigi (rispetto al nero classico)  
-Qua sotto un immagine per invogliarti a provare il nostro gioco... Buon divertimento! 
-
-![Mappa_6players.jpeg](Mappa_6players.jpeg)  
-
-*made by MVC-GURU*
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "___\n",
+        "\n",
+        "<a href='https://moodle.liceoamaldi.edu.it'> <img height=\"150\" src='https://moodle.liceoamaldi.edu.it/logo.png' /></a>\n",
+        "\n",
+        "___\n",
+        "## Ethical Hacking - Wireless\n",
+        "Per ottenere l'elenco di tutte le schede di rete presenti in un calcolatore, si usa il comando `iwconfig` che restituisce tutte le informazioni relative alla scheda di rete quali:\n",
+        "\n",
+        "\n",
+        "*   Mode: modalità operativa utilizzata dalla scheda\n",
+        "*   Frequenza: 2,4GHz oppure 5GHz\n",
+        "*   Access Point: stato di connessione della scheda (Not-Associated, Associated e Connected)\n",
+        "\n",
+        "Se si vogliono ottenere informazioni su una sola interfaccia di rete `wlan0`, si digita:\n",
+        "\n",
+        "```\n",
+        "iwconfig wlan0\n",
+        "```\n",
+        "\n",
+        "\n",
+        "## Wireless & modalità operative\n",
+        "Un adattatore di rete wireless può funzionare in due modalità operative:\n",
+        "*   **Monitor:** è una modalità di controllo in cui l'interfaccia di rete cablata o wireless fa passare all'unità centrale (CPU) tutto il traffico che può osservare in rete\n",
+        "*  **Managed:** l'interfaccia di rete lascia passare alla CPU soltanto i messaggi che contengono, nel campo del destinatario, l'indirizzo dell'interfaccia, scartando tutti gli altri messaggi che non le sono destinati.\n",
+        "\n",
+        "Si supponga che l'interfaccia di rete si chiami `wlan0`, per abilitare tale modalità compiere i seguenti passaggi:\n",
+        "\n",
+        "\n",
+        "1.   Disabilitare l'interfaccia di rete\n",
+        "```\n",
+        "ifconfig wlan0 down\n",
+        "```\n",
+        "2.   Terminare tutti i programmi in esecuzione che utilizzano la rete wireless:\n",
+        "```\n",
+        "airmon-ng check kill\n",
+        "```\n",
+        "3.   Abilitare la modalità monitor mode\n",
+        "```\n",
+        "iwconfig wlan0 mode monitor\n",
+        "```\n",
+        "4.   Riabilitare l'interfaccia di rete\n",
+        "```\n",
+        "ifconfig wlan0 up\n",
+        "```\n",
+        "\n",
+        "## Pre-connection attacks\n",
+        "Si tratta di una serie di attacchi che possono essere condotti prima che vi sia l'effettiva connessione alla rete wireless.\n",
+        "\n",
+        "Ad esempio, possiamo fare in modo che un client connesso alla rete wireless sia disconnesso dalle rete a cui è collegato.\n",
+        "\n",
+        "Utilizzero il programma `airodump-ng` che consente di sniffare i pacchetti di una rete wireless e, nel dettaglio, ci consente di acquisire delle informazioni sulle reti wireless che ci circondano.\n",
+        "\n",
+        "Esempio di utilizzo:\n",
+        "\n",
+        "```\n",
+        "airodump-ng wlan0\n",
+        "```\n",
+        "\n",
+        "Vengono mostrate informazioni quali:\n",
+        "* **BSSID:** MAC address degli access point che trasmettono il segnale\n",
+        "* **PWR:** pontenza trasmissiva delle rete wireless. Più è alto e più il segnale ha una qualità migliore. Ad esempio, -38 è una qualità migliore rispetto a -50\n",
+        "* **Beacons:** pacchetti che la rete wireless utilizza per annunciare le sue caratteristiche (nome, crittografia utilizzata, etc...)\n",
+        "* **Channel:** canale che viene utilizzato per comunicare dalla rete wireless e vanno da 1 a 14. Quando si hanno più Access Point si utilizzano canali diversi per evitare interferenze sullo stesso canale\n",
+        "* **Encryption:** standard di crittografia utilizzata dalla rete (WEP/WPA/WPA2)\n",
+        "* **Cipher:** algoritmo di crittografia utilizzato dallo standard\n",
+        "* **Auth:** PSK (Preshared key) - MGT (autenticazione basata su nome utente e password)\n",
+        "\n",
+        "### Sniffing mirato di una rete wireless\n",
+        "Nello step precedente, abbiamo usato `airodump-ng` per acquisire le informazioni di tutte le reti wireless che ci circondano.\n",
+        "\n",
+        "Ora supponiamo di volerci concentrare su una sola di queste ed, in particolar modo, su un AP caratterizzato da:\n",
+        "* Identificativo: `wlan0`\n",
+        "* MAC address: `F8:23:B2:B9:50:A8`\n",
+        "* Canale: `2`\n",
+        "\n",
+        "e di voler scrivere i pacchetti catturati sul file `test`\n",
+        "\n",
+        "```\n",
+        "airodump-ng --bssid F8:23:B2:B9:50:A8 --channel 2 --write test wlan0\n",
+        "```\n",
+        "\n",
+        "Questo comando porta alla visualizzazione delle rete wireless e di tutti i dispositivi connessi sotto la voce `STATION`.\n",
+        "Terminata la fase di cattura, possiamo vedere che nel file `test.cap` sono memorizzati tutti i pacchetti che sono stati trasmessi dalla rete durante la cattura.\n",
+        "\n",
+        "Utilizziamo l'utility `wireshark` per visualizzare il contenuto della cattura. Ovviamente in questo caso vedremo lo scambio dei pacchetti ma si tratterà di informazioni cifrate e quindi non interpretabili.\n",
+        "\n",
+        "\n",
+        "Se avessimo avuto accesso alla rete e scoperta la password, possiamo:\n",
+        "* ricostruire la topologia della rete (struttura e device connessi)\n",
+        "* vedere le password in chiaro\n",
+        "* condurre attacchi sui dispositivi connessi\n",
+        "\n",
+        "### Deauthentication attack\n",
+        "Si tratta di un attacco che ci consente di disconnettere qualsiasi client da qualsiasi rete.\n",
+        "* funziona con qualsiasi tipo di rete cifrata\n",
+        "* non è necessario conoscere la chiave della rete\n",
+        "* non è necessario essere connessi alla rete\n",
+        "\n",
+        "In questo scenario:\n",
+        "* acquisiremo il MAC address di un client C1 connesso alla rete wireless\n",
+        "* invieremo all'Access Point (AP) a cui è connesso il client C1 un messaggio di disconnessione dalla rete wireless\n",
+        "* impersoneremo un client C1 connesso alla rete wireless e forgeremo un pacchetto di disconnessione diretto all'access point a cui è connesso il client. In questo modo l'access point crederà che il client voglia lasciare la rete e disconnetterà tale client.\n",
+        "\n",
+        "Per fare questo utilizzeremo il programma `aireplay-ng` con le seguenti opzioni:\n",
+        "\n",
+        "* **--deauth 10000000:** stabilisce il numero di pacchetti che deve essere trasmesso. più è grande questo numero e per più tempo il client verrà disconnesso\n",
+        "* **-a [AP_MAC]:** MAC address dell'access point a cui è connesso il client\n",
+        "* **-c [CLINET_MAC]:** MAC address del client\n",
+        "\n",
+        "\n",
+        "```\n",
+        "aireplay-ng --deauth 10000000 -a F8:23:B2:B9:50:A8 -c 80:E6:50:22:A2:E8 wlan0\n",
+        "```\n",
+        "È importante comprendere che tale comando provoca la disconnessione dalle rete in oggetto. Tuttavia:\n",
+        "* se esiste una versione a 5GHz della stessa rete, il client si connetterà a tale rete\n",
+        "* se il client ha a disposizione un piano dati, continuerà ad avere la connessione ad internet\n",
+        "* se il client può connettersi a più reti wireless, potrebbe connettersi ad una rete completamente diversa da quella oggetto di attacco.\n",
+        "\n",
+        "Si noti inoltre che tale attacco potrebbe essere usato per forzare una rete wireless e rendere più frequente l'`handshake`, ovvero la negoziazione della connessione di un client con la rete.\n",
+        "\n",
+        "Da quest'operazione potrebbero essere dedotte informazioni sensibili sulla procedura di connessione."
+      ],
+      "metadata": {
+        "id": "pspKWEA9WV5T"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## WEP Cracking\n",
+        "Tenuto in considerazione quanto esposto in teoria per quanto riguarda le reti WEP, per violare una rete  di questo tipo dobbiamo:\n",
+        "\n",
+        "1. **Catturare** un grande numero di pacchetti o IVs (Instance Vector) → usiamo `airodump-ng`\n",
+        "2. **Analizzare** gli IV che abbiamo catturato e provare a violare la chiave → usiamo `aircrack-ng`\n",
+        "\n",
+        "Sfrutteremo le vulnerabilità di WEP rendendo la rete occupata e costringendo l'AP (Access Point) a generare un grande numero di IV (Instance Vector).\n",
+        "\n",
+        "### Fase di cattura\n",
+        "Come nel caso precedente, catturiamo i pacchetti con il seguente comando:\n",
+        "```\n",
+        "airodump-ng --bssid F8:23:B2:B9:50:A8 --channel 2 --write wep_cap wlan0\n",
+        "```\n",
+        "\n",
+        "Nel caso abbiamo un numero molto alto di pacchetti, possiamo procedere direttamente ad ottenere la password:\n",
+        "\n",
+        "```\n",
+        "aircrack-ng wep_cap.cap\n",
+        "```\n",
+        "\n",
+        "### Forzare la generazione di IV\n",
+        "Naturalmente sarebbe molto difficile violare la rete WEP quando:\n",
+        "* la rete non è occupata nel trasmettere pacchetti\n",
+        "* in questo frangente sarebbe richiesto del tempo per catturare sufficienti IV\n",
+        "\n",
+        "Soluzione:\n",
+        "* forzare l'AP a generare nuovi IV\n",
+        "\n",
+        "Precondizioni:\n",
+        "* l'AP comunica esclusivamente con i client che vi sono connessi, ovvero quando la scheda di rete del client si trova nello stato `Connected`.\n",
+        "* Se non siamo connessi non possiamo nemmeno iniziare l'attacco\n",
+        "* L'unica cosa che possiamo fare è associarci all'AP per scambiare le informazioni sull'autenticazione. È come se noi cliccassimo sulla rete wireless e ci chiedesse di inserire la password\n",
+        "\n",
+        "Per associarsi all'AP e\n",
+        "```\n",
+        "aireplay-ng --fakauth 0 -a F8:23:B2:B9:50:A8 -h 48:5d:60:48:23:24 wlan0\n",
+        "```\n",
+        "Nel dettaglio, i parametri sono:\n",
+        "* **fakeauth**: numero di pacchetti da inviare per dare la finta associazione. Specificando zero, se ne ottiene una sola\n",
+        "* **-a**: MAC address dell'AP\n",
+        "* **-h**: MAC address della nostra scheda di rete wireless. Si ottiene con il comando `ifconfig` e guardando il campo `unspec` e prendendo le prime 12 cifre\n",
+        "\n",
+        "Una volta associati che ci siamo associati alla rete in questione, procediamo nel seguente modo:\n",
+        "* aspettiamo che nella rete venga trasmesso un pacchetto ARP, ovvero un pacchetto che chiede all'AP di stabilire l'abbinamento fra MAC address di un dispositivo ed indirizzo IP\n",
+        "* lo catturiamo e continuiamo a ritrasmetterlo all'AP\n",
+        "* per ogni pacchetto che noi ritrasmettiamo, AP produrra un nuovo pacchetto di risposta\n",
+        "* continuiamo a fare questo finchè abbiamo collezionato IV sufficienti per arrivare alla chiave\n",
+        "\n",
+        "Per generare un nuovo pacchetto ARP usiamo il seguente comando:\n",
+        "\n",
+        "```\n",
+        "aireplay-ng --arpreplay 0 -a F8:23:B2:B9:50:A8 -h 48:5d:60:48:23:24 wlan0\n",
+        "```\n"
+      ],
+      "metadata": {
+        "id": "WRn0fzmhoJuU"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## WPA/WPA2 cracking\n",
+        "Violare questo sistema di crittografia è sicuramente molto più difficile rispetto a WEP che richiede pochissimo tempo per farlo.\n",
+        "Nel dettaglio questa tecnica crittografica:\n",
+        "* WPA/WPA2 utilizzano lo stesso algoritmo. Cambia la funzione che calcola l'integrità dei messaggi trasmessi. Nel caso di WPA si tratta di TKIP mentre per WPA2 si parla di CCMP. Si noti che la tecnica CCMP include l'algoritmo di crittografia simmetrica AES\n",
+        "* l'idea di base era porre rimedio alle lacune che erano emerse con WEP\n",
+        "* rispetto a WEP è una tipologia di rete molto sicura\n",
+        "* ogni pacchetto è cifrato usando una singola chiave temporanea\n",
+        "* in questo scenario, ogni pacchetto non contiene nessuna informazione interessante\n",
+        "\n",
+        "### WPS - Wi-Fi Protected Setup\n",
+        "Tenendo in considerazione che i pacchetti che analizzeremo non contengono nessuna informazione dovremmo effettuare un attacco a dizionario.\n",
+        "\n",
+        "In altre parole, a partire da una lista di parole, costruiremo una possibile password e tenteremo di  penetrare la rete.\n",
+        "\n",
+        "Si tratta di un'operazione piuttosto lunga e, una strada più breve, potrebbe essere sfruttare la mancata configurazione del Wi-Fi Protected Setup (WPS).\n",
+        "\n",
+        "WPS:\n",
+        "* può essere utilizzato sia con WPA che con WPA2\n",
+        "* consente ai client di connettersi alla rete wireless senza password\n",
+        "* l'autenticazione è possibile mediante un PIN di 8 cifre numeriche\n",
+        "  * 8 cifre sono molto poche\n",
+        "  * possiamo immaginare di provare l'inserimento di tutte le 8 cifre in un tempo relativamente ridotto\n",
+        "  * una volta ottenuto il PIN, possiamo usarlo per calcolare la password dell'AP\n",
+        "\n",
+        "<ins>PS</ins>: tutto questo funziona se il router non utilizza il Push Button Authentication, ovvero se è necessario premere un pulsante per abilitare questa modalità.\n",
+        "\n",
+        "Per verificare che questa funzionalità sia abilitata sulla rete wireless utilizzeremo:\n",
+        "\n",
+        "```\n",
+        "wash --interface wlan0\n",
+        "```\n",
+        "\n",
+        "Questo comando ci mostra caratteristiche salienti della rete:\n",
+        "* **LCK:** se impostato a `yes`indica che la rete bloccherà il client dopo un certo numero di tentativi che sono falliti\n",
+        "\n",
+        "Per fare questo attacco dobbiamo fare i seguenti passaggi:\n",
+        "\n",
+        "1. Associarsi alla rete: in questo modo la rete che sarà vittima del nostro attacco sarà costetta a non ignorarci.\n",
+        "```\n",
+        "aireplay-ng --fakeauth 30 -a [wifi_target_mac] -h [wifi_adapter_mac] wlan0\n",
+        "```\n",
+        "il parametro `fakeauth` era impostato a zero e quindi l'associazione alla rete era manuale. Ora, invece, tenterà di connettersi ogni 30sec\n",
+        "\n",
+        "2. Eseguire river: si tratta di un programma che prova i PIN con una modalità bruteforce, ovvero proverà sistematicamente tutte le possibile combinazioni del PIN\n",
+        "```\n",
+        "reaver --bssid [wifi_mac] --channel [channel_number] --interface wlan0 -vvv --no-associate\n",
+        "```\n",
+        "Aggiungiamo l'opzione `-vvv` perchè vogliamo che ci mostri tutti i log dell'operazione in modo dettagliato e usiamo l'opzione `--no-associate` perchè `reaver` fallisce spesso e volentieri nel farlo e preferiamo farlo in modo manuale utilizzando `aireplay-ng`"
+      ],
+      "metadata": {
+        "id": "zvfjWqx_8FtZ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### WPA/WPA2 cracking con wordlist\n",
+        "WPA ha come obiettivo:\n",
+        "* risolvere tutte le vulnerabilità che erano emerse con lo standard WEP\n",
+        "* vengono usate delle chiavi effimere (temporanee) per trasmettere i singoli pacchetti e la loro lunghezza è di gran lunga maggiore\n",
+        "* i singoli pacchetti ora non contengono dati utili a violare la rete wireless\n",
+        "* gli unici pacchetti che possono essere d'aiuto nella violazione della rete sono quelli relativi all'**handshake**\n",
+        "  * sono essenzialmente quattro pacchetti che vengono scambiati dal client in modo che si connetta alla rete\n",
+        "\n",
+        "#### Fase 1: Cattura dei pacchetti\n",
+        "In primo luogo avviamo il programma airodump-ng per catturare i pacchetti:\n",
+        "\n",
+        "```\n",
+        "airodump-ng --bssid F8:23:B2:B9:50:A8 --channel 2 --write wap_handshake wlan0\n",
+        "\n",
+        "```\n",
+        "In questo passaggio stiamo facendo le stesse operazioni che avremmo fatto per una rete WEP.\n",
+        "Il nostro obiettivo è quello di catturare l'handshake, ovvero il frangente in cui un nuovo client si connette alla rete. Se dovessimo attendere questo processo su una rete non impegnata nello scambio di dati, rischieremmo di attendere lungo tempo\n",
+        "\n",
+        "#### Fase 2: Disconnessione forzosa di un client\n",
+        "Anche in questo caso useremo l'utility airplay-ng per disconnetere un client. Tuttavia, lo faremo per un tempo brevissimo impostando a 4 il numero di pacchetti di disconnessione. In questo modo il client non avrà nessuna sensazione di essere stato disconnesso.\n",
+        "\n",
+        "```\n",
+        "aireplay-ng --deauth 4 -a [ap_mac_address] -c [client_mac_address] wlan0\n",
+        "```\n",
+        "\n",
+        "A questo punto nella schermata relativa a `airodump-ng`, notiamo che compare la parola `handshake` e questo significa che abbiamo acquisito il pacchetto che stavamo cercando.\n",
+        "\n",
+        "#### Fase 3: Creare una wordlist\n",
+        "Handshake di WPA/WPA2:\n",
+        "* non contiene nessun dato che ci permette di fare desunzioni sulla chiave di rete utilizzata\n",
+        "* contiene dei dati che ci permettono di verificare se una chiave è valida o meno per la rete\n",
+        "Quindi possiamo usare questo handshake per verificare la nostra password. Utilizzaremo un tool chiamato `crunch` che ci permette di generare un dizionario. Un dizionario è una collezione di possibili chiavi di rete che andremo a provare.\n",
+        "\n",
+        "La sintassi utilizzata è:\n",
+        "```\n",
+        "crunch [min] [max] characters -t [pattern] -o [filename]\n",
+        "```\n",
+        "Ad esempio:\n",
+        "```\n",
+        "crunch 6 8 123abc$ -t a@@@@b -o wordlist\n",
+        "```\n",
+        "Con questo comando si genereranno password:\n",
+        "* min: il numero minimo di caratteri che devono essere generati per la password\n",
+        "* max: numero massimo di caratteri che devono essere generati per la password\n",
+        "* -o: nome del file di output dove saranno salvati tutti i risultati\n",
+        "* t: pattern del file\n",
+        "\n",
+        "Un esempio di [wordlist pronta](https://github.com/kennyn510/wpa2-wordlists)\n",
+        "\n",
+        "#### Fase 4: Cracking della rete wireless\n",
+        "Abbiamo visto che per craccare una rete WPA/WPA2 dobbiamo:\n",
+        "1. Catturare l'handshake che ci permette di verificare se una password è corretta oppure no\n",
+        "2. Creare una wordlist\n",
+        "Nello specifico useremo il MIC (Message Integrity Code) usato dall'AP per verificare se la password è corretta.\n",
+        "\n",
+        "```\n",
+        "aircrack-ng wap_handshake.cap -w wordlist\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "xxNStAPizpQW"
+      }
+    }
+  ]
+}
